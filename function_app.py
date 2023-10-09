@@ -84,8 +84,8 @@ def http_trigger1(req: func.HttpRequest) -> func.HttpResponse:
         )
 
 
-@app.function_name(name="HttpTrigger2", methods=[func.HttpMethod.GET])
-@app.route(route="hello")
-def http_trigger2(req: func.HttpRequest) -> func.HttpResponse:
-     return func.HttpResponse("Hello!!!")
+# @app.function_name(name="HttpTrigger2", methods=[func.HttpMethod.GET])
+# @app.route(route="hello")
+# def http_trigger2(req: func.HttpRequest) -> func.HttpResponse:
+#      return func.HttpResponse("Hello!!!")
     
