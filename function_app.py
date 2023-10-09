@@ -4,7 +4,6 @@ import requests
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
-
 def get_token(client_id, client_secret):
     token_url = 'https://accounts.spotify.com/api/token'
     headers = {
@@ -84,8 +83,8 @@ def http_trigger1(req: func.HttpRequest) -> func.HttpResponse:
         )
 
 
-# @app.function_name(name="HttpTrigger2", methods=[func.HttpMethod.GET])
-# @app.route(route="hello")
-# def http_trigger2(req: func.HttpRequest) -> func.HttpResponse:
-#      return func.HttpResponse("Hello!!!")
+@app.function_name(name="HttpTrigger2")
+@app.route(route="hello", methods=[func.HttpMethod.GET])
+def http_trigger2(req: func.HttpRequest) -> func.HttpResponse:
+     return func.HttpResponse("Hello!!!")
     
