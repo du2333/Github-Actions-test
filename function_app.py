@@ -59,8 +59,9 @@ def get_recommendation():
     return recommendation_list
 
 
-@app.route(route="http_trigger")
-def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
+@app.function_name(name="HttpTrigger1")
+@app.route(route="recommendation")
+def http_trigger1(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     song = req.params.get('song')
@@ -74,10 +75,17 @@ def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
 
     if song:
         songs = get_recommendation()
-        return func.HttpResponse(f"Hello, {songs}.")
+        return func.HttpResponse(f"Hello, {song}===={songs}.")
     else:
         return func.HttpResponse(
             "This HTTP triggered function executed successfully. Pass a song in the query string or in the request "
             "body for a personalized response.",
             status_code=200
         )
+
+
+@app.function_name(name="HttpTrigger2", methods=[func.HttpMethod.GET])
+@app.route(route="hello")
+def http_trigger2(req: func.HttpRequest) -> func.HttpResponse:
+     return func.HttpResponse("Hello!!!")
+    
