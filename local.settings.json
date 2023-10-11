@@ -3,6 +3,8 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "Client_ID": "b07d29bb3a8b4a7baa5f655acecd94bd",
+    "Client_Secret": "926be4feff424d57ba32675ca9d36ceb"
   }
 }
